@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="header__logo" href="#" target="_blank"></a>
+    </header>
+    <main>
+      <section class="profile">
+        <img class="profile__avatar" src="./images/kusto.jpg" alt="аватар">
+        <div class="profile__info">
+          <div class="profile__container">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button"></button>
+          </div>
+        <p class="profile__status">Исследователь океана</p>
+        </div>
+        <button class="profile__add-button"></button>
+      </section>
+      <section class="elements">
+        <ul class="elements__list">
+          <li class="elements__item">
+            <img class="elements__image" src="./images/karachaevsk.jpg">
+            <div class="elements__footer">
+              <p class="elements__description">Карачаевск</p>
+              <button class="elements__group elements__group_active"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img class="elements__image" src="./images/elbrus.jpg">
+            <div class="elements__footer">
+              <p class="elements__description">Гора Эльбрус</p>
+              <button class="elements__group"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img class="elements__image" src="./images/dombai.jpg">
+            <div class="elements__footer">
+              <p class="elements__description">Домбай</p>
+              <button class="elements__group"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img class="elements__image" src="./images/elbrus.jpg">
+            <div class="elements__footer">
+              <p class="elements__description">Гора Эльбрус</p>
+              <button class="elements__group"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img class="elements__image" src="./images/dombai.jpg">
+            <div class="elements__footer">
+              <p class="elements__description">Домбай</p>
+              <button class="elements__group"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img class="elements__image" src="./images/karachaevsk.jpg">
+            <div class="elements__footer">
+              <p class="elements__description">Карачаево-Черкесск</p>
+              <button class="elements__group"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <div class="popup">
+        <div class="popup__container">
+          <button class="popup__close-button" type="button"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form">
+            <input
+              class="popup__input"
+              type="text"
+              value="Жак-Ив Кусто"
+              name="name"
+              id="name"
+              required
+              minlength="2"
+              maxlength="99"
+            >
+            <input
+            class="popup__input"
+            type="text"
+            value="Исследователь океана"
+            name="status"
+            id="status"
+            required
+            minlength="2"
+            maxlength="999"
+          >
+          <input
+            class="popup__submit"
+            type="submit"
+            value="Сохранить"
+            name="submit"
+            id="submit"
+          >
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2021 Mesto Russia</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.elements__footer{
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 25px 15px 31px 21px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
