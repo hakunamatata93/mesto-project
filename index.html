@@ -27,88 +27,88 @@
       <section class="elements">
         <ul class="elements__list">
           <li class="elements__item">
-            <img class="elements__image" src="./images/karachaevsk.jpg">
+            <img class="elements__image" src="./images/karachaevsk.jpg" alt="фото">
             <div class="elements__footer">
-              <p class="elements__description">Карачаевск</p>
+              <h2 class="elements__description">Карачаевск</h2>
               <button class="elements__group"></button>
             </div>
           </li>
           <li class="elements__item">
-            <img class="elements__image" src="./images/elbrus.jpg">
+            <img class="elements__image" src="./images/elbrus.jpg" alt="фото">
             <div class="elements__footer">
-              <p class="elements__description">Гора Эльбрус</p>
+              <h2 class="elements__description">Гора Эльбрус</h2>
               <button class="elements__group"></button>
             </div>
           </li>
           <li class="elements__item">
-            <img class="elements__image" src="./images/dombai.jpg">
+            <img class="elements__image" src="./images/dombai.jpg" alt="фото">
             <div class="elements__footer">
-              <p class="elements__description">Домбай</p>
+              <h2 class="elements__description">Домбай</h2>
               <button class="elements__group"></button>
             </div>
           </li>
           <li class="elements__item">
-            <img class="elements__image" src="./images/elbrus.jpg">
+            <img class="elements__image" src="./images/elbrus.jpg" alt="фото">
             <div class="elements__footer">
-              <p class="elements__description">Гора Эльбрус</p>
+              <h2 class="elements__description">Гора ЭльбрусГора Эльбрус</h2>
               <button class="elements__group"></button>
             </div>
           </li>
           <li class="elements__item">
-            <img class="elements__image" src="./images/dombai.jpg">
+            <img class="elements__image" src="./images/dombai.jpg" alt="фото">
             <div class="elements__footer">
-              <p class="elements__description">Домбай</p>
+              <h2 class="elements__description">Домбай</h2>
               <button class="elements__group"></button>
             </div>
           </li>
           <li class="elements__item">
-            <img class="elements__image" src="./images/karachaevsk.jpg">
+            <img class="elements__image" src="./images/karachaevsk.jpg" alt="фото">
             <div class="elements__footer">
-              <p class="elements__description">Карачаево-Черкесск</p>
+              <h2 class="elements__description">Карачаево-Черкесск</h2>
               <button class="elements__group"></button>
             </div>
           </li>
         </ul>
       </section>
-      <div class="popup">
-        <div class="popup__container">
-          <button class="popup__close-button" type="button"></button>
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form">
-            <input
-              class="popup__input"
-              type="text"
-              value="Жак-Ив Кусто"
-              name="name"
-              id="name"
-              required
-              minlength="2"
-              maxlength="99"
-            >
-            <input
-            class="popup__input"
-            type="text"
-            value="Исследователь океана"
-            name="status"
-            id="status"
-            required
-            minlength="2"
-            maxlength="999"
-          >
-          <input
-            class="popup__submit"
-            type="submit"
-            value="Сохранить"
-            name="submit"
-            id="submit"
-          >
-          </form>
-        </div>
-      </div>
-    </main>
     <footer class="footer">
       <p class="footer__copyright">© 2021 Mesto Russia</p>
     </footer>
   </div>
+  <div class="popup popup_active">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form" name="form">
+        <input
+          class="popup__input"
+          type="text"
+          value="Жак-Ив Кусто"
+          name="name"
+          id="name"
+          required
+          minlength="2"
+          maxlength="99"
+        >
+        <input
+        class="popup__input"
+        type="text"
+        value="Исследователь океана"
+        name="status"
+        id="status"
+        required
+        minlength="2"
+        maxlength="999"
+      >
+      <input
+        class="popup__submit"
+        type="submit"
+        value="Сохранить"
+        name="submit"
+        id="submit"
+      >
+      </form>
+    </div>
+  </div>
+</main>
 </body>
 </html>
