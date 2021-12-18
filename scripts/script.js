@@ -72,11 +72,22 @@ const initialCards = [
 
   function createElements(element){
     const newElement = elementsTemplate.querySelector('.elements__item').cloneNode(true);
-   const elementDescription = newElement.querySelector('.elements__description');
-   elementDescription.textContent = element.name;
+    const elementDescription = newElement.querySelector('.elements__description');
+    elementDescription.textContent = element.name;
     const elementImage = newElement.querySelector('.elements__image');
     elementImage.src = element.link;
     elementImage.alt = element.name;
+    newElement.querySelector('.elements__group').addEventListener('click', likeElement);
+    newElement.querySelector('.elements__delete').addEventListener('click', deleteElement);
 
     return newElement;
+
+  }
+
+  function likeElement(evt){
+    evt.target.classList.add('elements__group_active');
+  }
+
+  function deleteElement(evt){
+    evt.target.closest('.elements__item').remove();
   }
