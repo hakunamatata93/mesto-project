@@ -26,48 +26,17 @@
       </section>
       <section class="elements">
         <ul class="elements__list">
-          <li class="elements__item">
-            <img class="elements__image" src="./images/karachaevsk.jpg" alt="фото">
-            <div class="elements__footer">
-              <h2 class="elements__description">Карачаевск</h2>
-              <button class="elements__group" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__image" src="./images/elbrus.jpg" alt="фото">
-            <div class="elements__footer">
-              <h2 class="elements__description">Гора Эльбрус</h2>
-              <button class="elements__group" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__image" src="./images/dombai.jpg" alt="фото">
-            <div class="elements__footer">
-              <h2 class="elements__description">Домбай</h2>
-              <button class="elements__group" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__image" src="./images/elbrus.jpg" alt="фото">
-            <div class="elements__footer">
-              <h2 class="elements__description">Гора ЭльбрусГора Эльбрус</h2>
-              <button class="elements__group" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__image" src="./images/dombai.jpg" alt="фото">
-            <div class="elements__footer">
-              <h2 class="elements__description">Домбай</h2>
-              <button class="elements__group" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__image" src="./images/karachaevsk.jpg" alt="фото">
-            <div class="elements__footer">
-              <h2 class="elements__description">Карачаево-Черкесск</h2>
-              <button class="elements__group" type="button"></button>
-            </div>
-          </li>
+          <template id="elements__template">
+            <li class="elements__item">
+              <button class="elements__delete" type="button"></button>
+              <img class="elements__image" src="" alt="фото">
+              <div class="elements__footer">
+                <h2 class="elements__description">Карачаево-Черкесск</h2>
+                <button class="elements__group" type="button"></button>
+
+              </div>
+            </li>
+          </template>
         </ul>
       </section>
     <footer class="footer">
@@ -111,6 +80,7 @@
       </form>
     </div>
   </div>
+
   <script src="./scripts/script.js"></script>
 </body>
 </html>

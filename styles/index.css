@@ -19,6 +19,7 @@
 @import url(../blocks/elements/__description/elements__description.css);
 @import url(../blocks/elements/__group/elements__group.css);
 @import url(../blocks/elements/__group/_active/elements__group_active.css);
+@import url(../blocks/elements/__delete/elements__delete.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_active/popup_active.css);
 @import url(../blocks/popup/__container/popup__container.css);
