@@ -45,7 +45,7 @@
   </main>
   </div>
 
-  <div class="popup">
+  <div class="popup popup__profile">
     <div class="popup__container">
       <button class="popup__close-button" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -78,6 +78,38 @@
         id="submit"
       >
       </form>
+    </div>
+  </div>
+  <div class="popup popup__addplace">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button"></button>
+      <form class="popup__form" id='addPlaceForm' name="popup-form">
+          <h2 class="popup__title">Новое место</h2>
+          <input
+            type="text"
+            class="popup__input"
+            name="placename"
+            value=""
+            placeholder="Название"
+            id="inputPlaceName"
+          >
+          <input
+            type="url"
+            class="popup__input"
+            name="picturelink"
+            value=""
+            placeholder="Ссылка на картинку"
+            id="inputPictureLink"
+          >
+          <button class="popup__submit" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup__big-picture">
+      <figure class="big-picture ">
+        <button class="popup__close-button"></button>
+        <img class="big-picture__image" alt="фото" src=#/>
+        <figcaption class="big-picture__alt"></figcaption>
     </div>
   </div>
 
