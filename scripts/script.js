@@ -99,7 +99,10 @@ const initialCards = [
     evt.preventDefault();
     const newCard = {name: newPlace.value, link: newLink.value};
     elementsList.prepend(createElements(newCard));
+    newPlace.value = "";
+    newLink.value = "";
     closePopup(addPlacePopup);
+
   }
 //увеличение
   function showBigPicturePopup(evt){
