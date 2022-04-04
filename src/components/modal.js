@@ -1,9 +1,9 @@
 import * as validate from './validate'
 const addPlacePopup = document.querySelector('.popup__addplace');
-const addPlaceName = document.querySelector('#place');
-const addPictureLink = document.querySelector('#link');
-const addPlacePopupForm = document.querySelector('.popup__form');
-const addPlaceButton = document.querySelector('.popup__submit');
+const addPlaceName = addPlacePopup.querySelector('#place');
+const addPictureLink = addPlacePopup.querySelector('#link');
+const addPlacePopupForm = addPlacePopup.querySelector('.popup__form');
+const addPlaceButton = addPlacePopup.querySelector('.popup__submit');
 
 const profilePopup = document.querySelector('.popup__profile');
 const profileName = profilePopup.querySelector('#name');
@@ -38,7 +38,7 @@ export function closePopup(popup) {
 }
 
 
-export function subscribePopupToEvents(createElementCallBack, profilePerson, profileJob,) {
+export function subscribePopupToEvents(createElementCallBack, profilePerson, profileJob) {
 
     document.querySelectorAll('.popup__close-button').forEach(el => el.addEventListener('click', function (evt) {
         closePopup(evt.currentTarget.closest('.popup'));
@@ -59,12 +59,12 @@ export function subscribePopupToEvents(createElementCallBack, profilePerson, pro
         addPictureLink.value = ' ';
     });
 
-    addPlacePopupForm.addEventListener('submit', function (evt) {
+      addPlacePopupForm.addEventListener('submit', function (evt) {
         evt.preventDefault();
-        createElementCallBack({
-            name: addPlaceName.value,
-            link: addPictureLink.value
-        });
+          createElementCallBack({
+              name: addPlaceName.value,
+              link: addPictureLink.value
+          });
         closePopup(addPlacePopup);
     });
 

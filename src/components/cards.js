@@ -44,7 +44,7 @@ function createCard(item) {
     clone.querySelector('.elements__group').addEventListener('click', function (evt) {
         evt.currentTarget.classList.toggle('elements__group_active');
     });
-    img.addEventListener('click', function (evt) {
+    img.addEventListener('click', function () {
         modal.openPopup(modal.bigPicturePopup);
         modal.bigPictureImage.src = item.link;
         modal.bigPictureImage.alt = item.name;
@@ -58,16 +58,16 @@ function createCard(item) {
 }
 
 function createElement(item) {
-    elements.prepend(createCard(item));
+    elements.append(createCard(item));
 }
 
 function drawElements() {
     const elementsItem = document.createDocumentFragment();
     initialCards.forEach(item => elementsItem.append(createCard(item)));
-    elements.prepend(elementsItem);
+    elements.append(elementsItem);
 }
 
 export function initializeCards() {
-    drawElements();
+  drawElements();
     modal.subscribePopupToEvents(createElement, profileName, profileStatus);
 }
