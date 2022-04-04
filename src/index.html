@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
   <div class="page">
@@ -14,7 +13,7 @@
     </header>
     <main>
       <section class="profile">
-        <img class="profile__avatar" src="./images/kusto.jpg" alt="аватар">
+        <img class="profile__avatar" src="<%=require('./images/kusto.jpg')%>" alt="аватар">
         <div class="profile__info">
           <div class="profile__container">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -57,9 +56,11 @@
           name="name"
           id="name"
           required
+          autocomplete="off"
           minlength="2"
-          maxlength="99"
+          maxlength="40"
         >
+        <span class="error" id="name-error"></span>
         <input
         class="popup__input"
         type="text"
@@ -67,9 +68,11 @@
         name="status"
         id="status"
         required
+        autocomplete="off"
         minlength="2"
-        maxlength="999"
+        maxlength="200"
       >
+      <span class="error" id="status-error"></span>
       <input
         class="popup__submit"
         type="submit"
@@ -91,16 +94,24 @@
             name="placename"
             value=""
             placeholder="Название"
-            id="inputPlaceName"
+            id="place"
+            required
+            autocomplete="off"
+            minlength="2"
+            maxlength="30"
           >
+          <span class="error" id="place-error"></span>
           <input
             type="url"
             class="popup__input"
             name="picturelink"
             value=""
             placeholder="Ссылка на картинку"
-            id="inputPictureLink"
+            required
+            autocomplete="off"
+            id="link"
           >
+          <span class="error" id="link-error"></span>
           <button class="popup__submit" type="submit">Создать</button>
       </form>
     </div>
@@ -113,6 +124,5 @@
     </div>
   </div>
 
-  <script src="./scripts/script.js"></script>
 </body>
 </html>
