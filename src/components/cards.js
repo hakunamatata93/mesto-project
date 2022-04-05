@@ -58,16 +58,16 @@ function createCard(item) {
 }
 
 function createElement(item) {
-    elements.append(createCard(item));
+    elements.prepend(createCard(item));
 }
 
 function drawElements() {
     const elementsItem = document.createDocumentFragment();
     initialCards.forEach(item => elementsItem.append(createCard(item)));
-    elements.append(elementsItem);
+    elements.prepend(elementsItem);
 }
 
 export function initializeCards() {
-  drawElements();
+    drawElements();
     modal.subscribePopupToEvents(createElement, profileName, profileStatus);
 }
