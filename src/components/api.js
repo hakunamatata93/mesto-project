@@ -20,9 +20,6 @@ export const getInitialCards = () => {
       headers: config.headers
   })
       .then(onResponse)
-      .catch((err) => {
-          console.log(err); // выводим ошибку в консоль
-      });;
 }
 
 export const getProfile = () => {
