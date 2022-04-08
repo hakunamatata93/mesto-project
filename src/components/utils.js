@@ -1,6 +1,6 @@
 export const startLoading= (btn) => {
-  btn.textContent = btn.textContent + '...';
+  btn.value = btn.value + '...';
 }
 export const stopLoading = (btn) => {
-  btn.textContent = btn.textContent.replace('...', '');
+  btn.value = btn.value.replace('...', '');
 }

@@ -86,9 +86,7 @@ export const patchAvatar = (url) => {
 
   })
       .then(onResponse)
-      .catch((err) => {
-          console.log(err); // выводим ошибку в консоль
-      });
+
 }
 
 

@@ -61,10 +61,16 @@ function createCard(data) {
     function (evt) {
         if (evt.target.classList.contains('elements__group_active'))
             api.deleteLike(getCardId(evt.target))
-                .then((cardJSON) => handleLikes(cardJSON, likesCounter, evt));
+                .then((cardJSON) => handleLikes(cardJSON, likesCounter, evt))
+                .catch((err) => {
+                  console.log(err);
+              });
         else
             api.putLike(getCardId(evt.target))
-                .then((cardJSON) => handleLikes(cardJSON, likesCounter, evt));
+                .then((cardJSON) => handleLikes(cardJSON, likesCounter, evt))
+                .catch((err) => {
+                  console.log(err);
+              });
     });
     img.addEventListener('click', function () {
         modal.openPopup(modal.bigPicturePopup);
@@ -74,19 +80,23 @@ function createCard(data) {
     });
 
     const deleteButton = clone.querySelector('.elements__delete');
-    deleteButton.addEventListener('click', function (evt) {
-        elements.removeChild(evt.currentTarget.closest('.elements__item'));
+    deleteButton.addEventListener('click', (evt)=> {
+        api.deleteCard(data._id)
+        .then(elements.removeChild(evt.currentTarget.closest('.elements__item')))
+        .catch((err) => {
+          console.log(err);
+      });
     });
 
     if (data.owner._id != profileName.id) {
       deleteButton.classList.add('elements__delete_type_hidden');
-
   }
 
   const likeButton = clone.querySelector('.elements__group');
   if (data.likes.some(e => e._id === profileName.id)) {
       likeButton.classList.add('elements__group_active');
   }
+
     return clone;
 }
 
