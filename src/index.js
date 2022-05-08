@@ -3,7 +3,7 @@ import Api from './components/Api';
 import UserInfo from './components/UserInfo';
 import Card from './components/Card';
 import Section from './components/Section';
-import PopupWithForm from './components/popupWithForm';
+import PopupWithForm from './components/PopupWithForm';
 import PopupWithImage from './components/PopupWithImage';
 import Validator from './components/Validator';
 import {startLoading, stopLoading} from './components/utils';
@@ -43,3 +43,19 @@ const editAvatarValidator = new Validator(
 editProfilealidator.enableValidation();
 addCardValidator.enableValidation();
 editAvatarValidator.enableValidation();
+
+const cardList = new Section({
+  renderer:(item) =>{
+    const card = new Card({
+      data: item,
+      handleCardClick,
+      handleDeleteClick,
+      toggleLike,
+      selector: '#elements__template',
+      userId: userInfo.getUserInfo().userId
+    });
+    return card.generate();
+  },
+},
+'.elements__list'
+);
