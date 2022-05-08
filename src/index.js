@@ -21,11 +21,25 @@ import {
 
 //экземпляры
 const api = new Api(config);
-const userInfo = new UserInfo(config);
-const card = new Card(config);
 
-const section = new Section(config);
-const popupWithForm = new PopupWithForm(config);
-const popupWithImage = new PopupWithImage(config);
-const validator = new Validator(config);
-
+const userInfo = new UserInfo(
+  userSelectors.profileName,
+  userSelectors.profileJob,
+  userSelectors.ProfileAvatar
+);
+//валидация
+const editProfilealidator = new Validator(
+  validationConfig,
+  formSelectors.editProfileForm
+);
+const addCardValidator = new Validator(
+  validationConfig,
+  formSelectors.addCardForm
+);
+const editAvatarValidator = new Validator(
+  validationConfig,
+  formSelectors.editAvatarForm
+);
+editProfilealidator.enableValidation();
+addCardValidator.enableValidation();
+editAvatarValidator.enableValidation();
