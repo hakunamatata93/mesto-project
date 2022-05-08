@@ -69,7 +69,7 @@ export const validationConfig = {
   inputSelector: '.popup__input',
   invalidButtonClass: 'popup__submit_type_invalid',
   inputErrorClass: 'popup__input_type_invalid',
-  submitButtonSelector: '.popup__submit',
+  submitButtonSelector: '.popup__submit'
 };
 
 
