@@ -1,6 +1,6 @@
 import * as modal from './modal.js';
 import { userId } from "../index.js"
-import * as api from "./api.js"
+import * as api from "./Api.js"
 /*const initialCards = [
   {
     name: 'Архыз',

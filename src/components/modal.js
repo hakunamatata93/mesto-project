@@ -1,5 +1,5 @@
 import * as validate from './validate'
-import * as api from './api.js'
+import * as api from './Api.js'
 import * as utils from './utils.js'
 
 const avatarPopup = document.querySelector('.popup__avatar');
