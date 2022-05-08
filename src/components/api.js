@@ -19,6 +19,9 @@ export default class Api {
       .then(_checkResponse)
   }
 
+  getAppInfo(){
+    return Promise.all([this._getInitialProfile(), this._getInitialCards()])
+  }
   postNewCard = (name, link) => {
   return fetch(`${this._options.baseUrl}/cards`, {
       method: 'POST',
@@ -31,7 +34,7 @@ export default class Api {
       .then(_checkResponse)
 }
 
-  _deleteCard(id){
+  deleteCard(id){
   return fetch(`${this._options.baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: this._options.headers
@@ -39,7 +42,7 @@ export default class Api {
       .then(_checkResponse)
   }
 
-  _deleteLike(id){
+  deleteLike(id){
     return fetch(`${this._options.baseUrl}/cards/likes/${id}`, {
       method: 'DELETE',
       headers: this._options.headers
@@ -47,7 +50,7 @@ export default class Api {
       .then(_checkResponse)
   }
 
-  _putLike(id){
+  putLike(id){
     return fetch(`${this._options.baseUrl}/cards/likes/${id}`, {
       method: 'PUT',
       headers: this._options.headers
@@ -55,7 +58,7 @@ export default class Api {
       .then(_checkResponse)
   }
 
-  _patchAvatar(url){
+  patchAvatar(url){
     return fetch(`${this._options.baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._options.headers,
@@ -63,7 +66,17 @@ export default class Api {
     })
     .then(_checkResponse)
   }
-
+    patchProfile (name, about){
+    return fetch(`${this._options.baseUrl}/users/me`, {
+        method: 'PATCH',
+        headers: this._options.headers,
+        body: JSON.stringify({
+          name: name,
+          link: link
+        })
+    })
+        .then(_checkResponse)
+  }
 }
 
 // const config = {
