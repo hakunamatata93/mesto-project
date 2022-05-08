@@ -81,4 +81,38 @@ const editProfilePopup = new PopupWithForm({
   }
 })
 
+const editAvatarPopup = new PopupWithForm({
+  popupSelector:'.popup__avatar',
+  handleFormSubmit:(data) => {
+      startLoading('.popup__avatar'),
+      api.patchAvatar(data.url)
+      .then(userData => {
+          userInfo.setUserInfo(userData);
+          editAvatarPopup.close();
+      })
+      .catch((err)=>{
+          console.log(`Error: ${err}`);
+      })
+      .finally(()=>{
+          stopLoading('.popup__avatar')
+      })
+  }
+})
 
+const  addCardPopup = new PopupWithForm({
+  popupSelector:'.popup__addplace',
+  handleFormSubmit:(data) => {
+      startLoading('.popup__addplace'),
+      api.postNewCard(data.name, data.link)
+      .then(userData => {
+      userInfo.setUserInfo(userData);
+      addCardPopup.close();
+      })
+      .catch((err)=>{
+      console.log(`Error: ${err}`);
+      })
+  .finally(()=>{
+      stopLoading('.popup__addplace')
+  })
+  }
+})
