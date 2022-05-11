@@ -4,4 +4,5 @@
   display: block;
   max-width: 282px;
   margin: 0 auto;
+  position: relative;
 }
