@@ -1,6 +1,15 @@
-export const startLoading= (btn) => {
-    btn.value = btn.value + '...';
+export const loading = (
+  popupSelector,
+  isLoading = false,
+  text = 'Сохранить',
+  loadingText = 'Сохранение...'
+
+) => {
+  const button = document.querySelector(`${popupSelector} .popup__submit`);
+
+  if (isLoading) {
+      button.textContent = loadingText;
+  } else {
+      button.textContent = text;
   }
-  export const stopLoading = (btn) => {
-    btn.value = btn.value.replace('...', '');
-  }
+};

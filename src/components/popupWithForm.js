@@ -4,7 +4,7 @@ export default class PopupWithForm extends Popup {
     constructor({ popupSelector, handleFormSubmit }) {
 
     super(popupSelector);
-    this._form = this._popup.querySelector('.popup');
+    this._form = this._popup.querySelector('.popup__form');
     this._handleFormSubmit = handleFormSubmit;
     this._inputList = this._form.querySelectorAll('.popup__input');
     }

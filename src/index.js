@@ -6,7 +6,7 @@ import Section from './components/Section';
 import PopupWithForm from './components/PopupWithForm';
 import PopupWithImage from './components/PopupWithImage';
 import Validator from './components/Validator';
-import {startLoading, stopLoading} from './components/utils.js';
+import {loading} from './components/utils.js';
 import {
     config,
     editProfileButton,
@@ -19,6 +19,40 @@ import {
     formSelectors
 } from './components/constants';
 
+
+function handleCardClick(card) {
+  bigPicturePopup.open(card);
+}
+
+function handleDeleteClick(card) {
+  api.deleteCard(card.getCardId())
+  .then(() => {
+  card.removeCard();
+  })
+  .catch((err) => {
+    console.log(`Error: ${err}`);
+  })
+}
+
+function toggleLike(card) {
+  if (!card.isLiked()) {
+    api.putLike(card.getCardId())
+    .then((cardData) => {
+      card.updateLikes(cardData)
+    })
+    .catch((err) => {
+      console.log(`Error: ${err}`);
+    })
+  } else {
+    api.deleteLike(card.getCardId())
+    .then((cardData) => {
+      card.updateLikes(cardData)
+    })
+    .catch((err) => {
+      console.log(`Error: ${err}`);
+    })
+  }
+}
 //экземпляры
 const api = new Api(config);
 
@@ -28,7 +62,7 @@ const userInfo = new UserInfo(
     userSelectors.ProfileAvatar
 );
 //валидация
-const editProfilealidator = new Validator(
+const editProfileValidator = new Validator(
     validationConfig,
     formSelectors.editProfileForm
 );
@@ -40,7 +74,7 @@ const editAvatarValidator = new Validator(
     validationConfig,
     formSelectors.editAvatarForm
 );
-editProfilealidator.enableValidation();
+editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
 editAvatarValidator.enableValidation();
 
@@ -66,8 +100,8 @@ bigPicturePopup.setEventListeners();
 const editProfilePopup = new PopupWithForm({
   popupSelector:'.popup__profile',
   handleFormSubmit:(data)=>{
-    startLoading('popup__profile'),
-    api.patchProfile(data.profileName, data.profileJob)
+    loading('.popup__profile', true),
+    api.patchProfile(data.name, data.about)
     .then(userData =>{
       userInfo.setUserInfo(userData);
       editProfilePopup.close();
@@ -76,15 +110,15 @@ const editProfilePopup = new PopupWithForm({
       console.log(`Error: ${err}`);
     })
     .finally(()=>{
-      stopLoading('.popup__profile')
+      loading('.popup__profile', false)
     })
   }
 })
-
+editProfilePopup.setEventListeners();
 const editAvatarPopup = new PopupWithForm({
   popupSelector:'.popup__avatar',
   handleFormSubmit:(data) => {
-      startLoading('.popup__avatar'),
+      loading('.popup__avatar', true),
       api.patchAvatar(data.url)
       .then(userData => {
           userInfo.setUserInfo(userData);
@@ -94,15 +128,15 @@ const editAvatarPopup = new PopupWithForm({
           console.log(`Error: ${err}`);
       })
       .finally(()=>{
-          stopLoading('.popup__avatar')
+          loading('.popup__avatar', false)
       })
   }
 })
-
+editAvatarPopup.setEventListeners();
 const  addCardPopup = new PopupWithForm({
   popupSelector:'.popup__addplace',
   handleFormSubmit:(data) => {
-      startLoading('.popup__addplace'),
+      loading('.popup__addplace', true),
       api.postNewCard(data.name, data.link)
       .then(userData => {
       userInfo.setUserInfo(userData);
@@ -112,7 +146,35 @@ const  addCardPopup = new PopupWithForm({
       console.log(`Error: ${err}`);
       })
   .finally(()=>{
-      stopLoading('.popup__addplace')
+      loading('.popup__addplace', false)
   })
   }
+})
+addCardPopup.setEventListeners();
+
+
+editProfileButton.addEventListener('click', () => {
+  editProfilePopup.open();
+
+  const currentUser = userInfo.getUserInfo();
+  nameInput.value = currentUser.name;
+  jobInput.value = currentUser.about;
+});
+
+addButton.addEventListener('click', () => {
+  addCardValidator.resetValidation();
+  addCardPopup.open();
+});
+
+editAvatar.addEventListener('click', () => {
+  editAvatarValidator.resetValidation();
+  editAvatarPopup.open();
+});
+
+api.getAppInfo().then(([userData, cardData]) => {
+  userInfo.setUserInfo(userData);
+  cardList.renderItems(cardData.reverse());
+})
+.catch((err) => {
+  console.log(`Error: ${err}`);
 })

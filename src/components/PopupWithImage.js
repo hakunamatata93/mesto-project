@@ -7,7 +7,7 @@ export default class PopupWithImage extends Popup {
         this._title = this._popup.querySelector('.big-picture__alt')
     }
 
-    open(){
+    open(card){
         super.open();
         this._title.textContent = card.title;
         this._image.alt = card.title;

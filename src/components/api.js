@@ -7,22 +7,23 @@ export default class Api {
   }
   _getInitialCards() {
     return fetch(`${this._options.baseUrl}/cards`, {
-
-             headers: this._options.headers
-        })
-             .then(_checkResponse)
-  }
-  _getInitialProfile(){
-      return fetch(`${this._options.baseUrl}/users/me`, {
       headers: this._options.headers
     })
-      .then(_checkResponse)
+    .then(this._checkResponse)
+  }
+
+  _getInitialProfile(){
+      return fetch(`${this._options.baseUrl}/users/me`, {
+        headers: this._options.headers
+      })
+      .then(this._checkResponse)
   }
 
   getAppInfo(){
     return Promise.all([this._getInitialProfile(), this._getInitialCards()])
   }
-  postNewCard = (name, link) => {
+
+  postNewCard(data){
   return fetch(`${this._options.baseUrl}/cards`, {
       method: 'POST',
       headers: this._options.headers,
@@ -31,7 +32,7 @@ export default class Api {
         link: link
       })
   })
-      .then(_checkResponse)
+      .then(this._checkResponse)
 }
 
   deleteCard(id){
@@ -39,7 +40,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._options.headers
   })
-      .then(_checkResponse)
+      .then(this._checkResponse)
   }
 
   deleteLike(id){
@@ -47,7 +48,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._options.headers
   })
-      .then(_checkResponse)
+      .then(this._checkResponse)
   }
 
   putLike(id){
@@ -55,7 +56,7 @@ export default class Api {
       method: 'PUT',
       headers: this._options.headers
   })
-      .then(_checkResponse)
+      .then(this._checkResponse)
   }
 
   patchAvatar(url){
@@ -64,7 +65,7 @@ export default class Api {
       headers: this._options.headers,
       body: JSON.stringify({ avatar: url })
     })
-    .then(_checkResponse)
+    .then(this._checkResponse)
   }
     patchProfile (name, about){
     return fetch(`${this._options.baseUrl}/users/me`, {
@@ -72,10 +73,10 @@ export default class Api {
         headers: this._options.headers,
         body: JSON.stringify({
           name: name,
-          link: link
+          about: about
         })
     })
-        .then(_checkResponse)
+        .then(this._checkResponse)
   }
 }
 

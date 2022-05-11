@@ -19,7 +19,7 @@ export default class Popup{
         this.close();
       }
       if(evt.target.classList.contains('popup__close-button')){
-        this.close
+        this.close();
       }
     })
   }
