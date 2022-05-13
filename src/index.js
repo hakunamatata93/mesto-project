@@ -138,8 +138,8 @@ const  addCardPopup = new PopupWithForm({
   handleFormSubmit:(data) => {
       loading('.popup__addplace', true),
       api.postNewCard(data.placename, data.picturelink)
-      .then(userData => {
-      userInfo.setUserInfo(userData);
+      .then(cardData => {
+        cardList.addItem(cardData);
       addCardPopup.close();
       })
       .catch((err)=>{
