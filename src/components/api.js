@@ -23,7 +23,7 @@ export default class Api {
     return Promise.all([this._getInitialProfile(), this._getInitialCards()])
   }
 
-  postNewCard(data){
+  postNewCard(name, link){
   return fetch(`${this._options.baseUrl}/cards`, {
       method: 'POST',
       headers: this._options.headers,

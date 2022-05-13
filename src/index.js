@@ -101,7 +101,7 @@ const editProfilePopup = new PopupWithForm({
   popupSelector:'.popup__profile',
   handleFormSubmit:(data)=>{
     loading('.popup__profile', true),
-    api.patchProfile(data.name, data.about)
+    api.patchProfile(data.name, data.status)
     .then(userData =>{
       userInfo.setUserInfo(userData);
       editProfilePopup.close();
@@ -119,7 +119,7 @@ const editAvatarPopup = new PopupWithForm({
   popupSelector:'.popup__avatar',
   handleFormSubmit:(data) => {
       loading('.popup__avatar', true),
-      api.patchAvatar(data.url)
+      api.patchAvatar(data.avatarlink)
       .then(userData => {
           userInfo.setUserInfo(userData);
           editAvatarPopup.close();
@@ -137,7 +137,7 @@ const  addCardPopup = new PopupWithForm({
   popupSelector:'.popup__addplace',
   handleFormSubmit:(data) => {
       loading('.popup__addplace', true),
-      api.postNewCard(data.name, data.link)
+      api.postNewCard(data.placename, data.picturelink)
       .then(userData => {
       userInfo.setUserInfo(userData);
       addCardPopup.close();
