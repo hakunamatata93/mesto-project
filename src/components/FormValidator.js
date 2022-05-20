@@ -81,9 +81,12 @@ export default class FormValidator {
         this._toggleButtonState();
       });
 
-      this._form.addEventListener('reset', () => {
+      this._form.addEventListener("reset", () => {
         this._setDisabledButton();
-        this._hideErrorMessage(errorElement, input);
+        this._inputs.forEach((input) => {
+          const errorElement = this._form.querySelector(`#${input.id}-error`);
+          this._hideErrorMessage(errorElement, input);
+        });
       });
 
     });
