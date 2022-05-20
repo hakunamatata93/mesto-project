@@ -1,4 +1,4 @@
-export default class Validator {
+export default class FormValidator {
   constructor(
     {
       formSelector,
@@ -36,12 +36,12 @@ export default class Validator {
   }
 
   _setDisabledButton() {
-    this._button.classList.add(this._inactiveButtonClass);
+    this._button.classList.add("popup__submit_type_invalid");
     this._button.setAttribute('disabled', true);
   }
 
   _removeDisabledButton() {
-    this._button.classList.remove(this._inactiveButtonClass);
+    this._button.classList.remove("popup__submit_type_invalid");
     this._button.removeAttribute('disabled');
   }
 

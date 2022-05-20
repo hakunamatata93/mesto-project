@@ -5,7 +5,7 @@ import Card from './components/Card';
 import Section from './components/Section';
 import PopupWithForm from './components/PopupWithForm';
 import PopupWithImage from './components/PopupWithImage';
-import Validator from './components/Validator';
+import FormValidator from './components/FormValidator';
 import {loading} from './components/utils.js';
 import {
     config,
@@ -62,15 +62,15 @@ const userInfo = new UserInfo(
     userSelectors.ProfileAvatar
 );
 //валидация
-const editProfileValidator = new Validator(
+const editProfileValidator = new FormValidator(
     validationConfig,
     formSelectors.editProfileForm
 );
-const addCardValidator = new Validator(
+const addCardValidator = new FormValidator(
     validationConfig,
     formSelectors.addCardForm
 );
-const editAvatarValidator = new Validator(
+const editAvatarValidator = new FormValidator(
     validationConfig,
     formSelectors.editAvatarForm
 );
