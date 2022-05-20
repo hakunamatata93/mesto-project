@@ -156,9 +156,9 @@ addCardPopup.setEventListeners();
 editProfileButton.addEventListener('click', () => {
   editProfilePopup.open();
 
-  const currentUser = userInfo.getUserInfo();
-  nameInput.value = currentUser.name;
-  jobInput.value = currentUser.about;
+  // const currentUser = userInfo.getUserInfo();
+  // nameInput.value = currentUser.name;
+  // jobInput.value = currentUser.about;
 });
 
 addButton.addEventListener('click', () => {

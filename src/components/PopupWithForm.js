@@ -9,6 +9,13 @@ export default class PopupWithForm extends Popup {
     this._inputList = this._form.querySelectorAll('.popup__input');
     }
 
+    setInputValues(data) {
+        this._inputList.forEach((input) => {
+          // тут вставляем в `value` инпута данные из объекта по атрибуту `name` этого инпута
+          input.value = data[input.name];
+        });
+      }
+
     close() {
         super.close();
         this._form.reset();
@@ -23,11 +30,27 @@ export default class PopupWithForm extends Popup {
         return this._formValues;
     }
 
+    // renderLoading(isLoading, buttonText='Сохранить') {
+    //     const loading = (
+    //         popupSelector,
+    //         isLoading = false,
+    //         text = 'Сохранить',
+    //         loadingText = 'Сохранение...'
+    //     ) => {
+    //         const button = document.querySelector(`${popupSelector} .popup__submit`);
+
+    //         if (isLoading) {
+    //             button.textContent = loadingText;
+    //         } else {
+    //             button.textContent = text;
+    //         }
+    //         }
+    //     }
+
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this._getInputValues();
             this._handleFormSubmit(this._getInputValues());
         })
     }
