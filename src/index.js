@@ -103,7 +103,7 @@ bigPicturePopup.setEventListeners();
 const editProfilePopup = new PopupWithForm({
   popupSelector: ".popup__profile",
   handleFormSubmit: (data) => {
-    loading(".popup__profile", true),
+    editProfilePopup.loading( true),
       api
         .patchProfile(data.name, data.status)
         .then((userData) => {
@@ -114,7 +114,7 @@ const editProfilePopup = new PopupWithForm({
           console.log(`Error: ${err}`);
         })
         .finally(() => {
-          loading(".popup__profile", false);
+          editProfilePopup.loading(false);
         });
   },
 });
@@ -122,7 +122,7 @@ editProfilePopup.setEventListeners();
 const editAvatarPopup = new PopupWithForm({
   popupSelector: ".popup__avatar",
   handleFormSubmit: (data) => {
-    loading(".popup__avatar", true),
+    editAvatarPopup.loading(true),
       api
         .patchAvatar(data.avatarlink)
         .then((userData) => {
@@ -133,7 +133,7 @@ const editAvatarPopup = new PopupWithForm({
           console.log(`Error: ${err}`);
         })
         .finally(() => {
-          loading(".popup__avatar", false);
+          editAvatarPopup.loading(false);
         });
   },
 });
@@ -141,7 +141,7 @@ editAvatarPopup.setEventListeners();
 const addCardPopup = new PopupWithForm({
   popupSelector: ".popup__addplace",
   handleFormSubmit: (data) => {
-    loading(".popup__addplace", true),
+    addCardPopup.loading( true),
       api
         .postNewCard(data.placename, data.picturelink)
         .then((cardData) => {
@@ -152,7 +152,7 @@ const addCardPopup = new PopupWithForm({
           console.log(`Error: ${err}`);
         })
         .finally(() => {
-          loading(".popup__addplace", false);
+          addCardPopup.loading(false);
         });
   },
 });
@@ -161,9 +161,9 @@ addCardPopup.setEventListeners();
 editProfileButton.addEventListener("click", () => {
   editProfilePopup.open();
 
-  // const currentUser = userInfo.getUserInfo();
-  // nameInput.value = currentUser.name;
-  // jobInput.value = currentUser.about;
+   const currentUser = userInfo.getUserInfo();
+   nameInput.value = currentUser.name;
+   jobInput.value = currentUser.about;
 });
 
 addButton.addEventListener("click", () => {

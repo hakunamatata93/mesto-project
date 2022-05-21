@@ -8,9 +8,9 @@ export const config = {
 export const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
-  invalidButtonClass: "popup__submit_type_invalid",
-  inputErrorClass: "popup__input_type_invalid",
   submitButtonSelector: ".popup__submit",
+  inactiveButtonClass: "popup__submit_type_invalid",
+  inputErrorClass: "popup__input_type_invalid",
 };
 
 export const userSelectors = {

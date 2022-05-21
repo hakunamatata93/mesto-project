@@ -36,12 +36,12 @@ export default class FormValidator {
   }
 
   _setDisabledButton() {
-    this._button.classList.add("popup__submit_type_invalid");
+    this._button.classList.add(this._inactiveButtonClass);
     this._button.setAttribute("disabled", true);
   }
 
   _removeDisabledButton() {
-    this._button.classList.remove("popup__submit_type_invalid");
+    this._button.classList.remove(this._inactiveButtonClass);
     this._button.removeAttribute("disabled");
   }
 
@@ -74,19 +74,18 @@ export default class FormValidator {
   }
 
   _setEventListener() {
+    this._form.addEventListener("reset", () => {
+      this._setDisabledButton();
+      this._inputs.forEach((input) => {
+        const errorElement = this._form.querySelector(`#${input.id}-error`);
+        this._hideErrorMessage(errorElement, input);
+      });
+    });
     this._inputs.forEach((input) => {
       const errorElement = this._form.querySelector(`#${input.id}-error`);
       input.addEventListener("input", () => {
         this._handlerInputValidity(errorElement, input);
         this._toggleButtonState();
-      });
-
-      this._form.addEventListener("reset", () => {
-        this._setDisabledButton();
-        this._inputs.forEach((input) => {
-          const errorElement = this._form.querySelector(`#${input.id}-error`);
-          this._hideErrorMessage(errorElement, input);
-        });
       });
     });
   }
