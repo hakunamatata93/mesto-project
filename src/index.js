@@ -6,7 +6,7 @@ import Section from "./components/Section";
 import PopupWithForm from "./components/PopupWithForm";
 import PopupWithImage from "./components/PopupWithImage";
 import FormValidator from "./components/FormValidator";
-import { loading } from "./components/utils/utils.js";
+
 import {
   config,
   editProfileButton,
